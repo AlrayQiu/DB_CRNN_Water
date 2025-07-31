@@ -13,7 +13,6 @@ from identifier.test import rec_test, rec_test_data_gen
 检测模型
 '''
     
-os.mkdir("temp/show")
 
 # 数据处理可视化
 train_dataset = ImageDataset(data_dir=det_args.train_dir, gt_dir=det_args.train_gt_dir, is_training=True, processes=train_processes)
