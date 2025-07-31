@@ -53,3 +53,4 @@ def final_postProcess():
         plt.xticks([])
         plt.yticks([])
         plt.imshow(image)
+        plt.savefig("temp/show/ident_rst.jpg")

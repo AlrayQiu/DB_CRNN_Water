@@ -12,7 +12,7 @@ import math
 import pyclipper
 import imgaug
 import imgaug.augmenters as iaa
- 
+
  
 from PIL import Image
 from shapely.geometry import Polygon

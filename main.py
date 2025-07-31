@@ -8,11 +8,13 @@ from identifier.model import RecModelBuilder
 from identifier.postprocess import final_postProcess
 from identifier.preprocesss import IdentifierPreProcess, WMRDataset
 from identifier.test import rec_test, rec_test_data_gen
- 
+
 '''
 检测模型
 '''
     
+os.mkdir("temp/show")
+
 # 数据处理可视化
 train_dataset = ImageDataset(data_dir=det_args.train_dir, gt_dir=det_args.train_gt_dir, is_training=True, processes=train_processes)
 train_dataloader = data.DataLoader(train_dataset, batch_size=2, num_workers=0, shuffle=True, drop_last=False)
@@ -27,6 +29,7 @@ plt.title('image', fontdict={'size': 60})
 plt.xticks([])
 plt.yticks([])
 plt.imshow(image)
+plt.savefig("temp/show/det_img.jpg")
  
  
 probability_map = (batch['gt'][0].to('cpu').numpy() * 255).astype(np.uint8)
@@ -35,6 +38,7 @@ plt.title('probability_map', fontdict={'size': 60})
 plt.xticks([])
 plt.yticks([])
 plt.imshow(probability_map, cmap='gray')
+plt.savefig("temp/show/det_probability_map.jpg")
  
  
 threshold_map = (batch['thresh_map'][0].to('cpu').numpy() * 255).astype(np.uint8)
@@ -43,6 +47,7 @@ plt.title('threshold_map', fontdict={'size': 60})
 plt.xticks([])
 plt.yticks([])
 plt.imshow(threshold_map, cmap='gray')
+plt.savefig("temp/show/det_threshold_map.jpg")
  
  
 threshold_mask = (batch['thresh_mask'][0].to('cpu').numpy() * 255).astype(np.uint8)
@@ -51,6 +56,7 @@ plt.title('threshold_mask', fontdict={'size': 60})
 plt.xticks([])
 plt.yticks([])
 plt.imshow(threshold_mask, cmap='gray')
+plt.savefig("temp/show/det_threshold_mask.jpg")
  
  
 det_train()
@@ -86,6 +92,7 @@ plt.title('image')
 plt.xticks([])
 plt.yticks([])
 plt.imshow(image)
+plt.savefig("temp/show/ident_img.jpg")
         
 label_digit = label[0].to('cpu').numpy().tolist()
 label_str = ''.join([dataset.id2char[t] for t in label_digit if t > 0])

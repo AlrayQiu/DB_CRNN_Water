@@ -1,5 +1,5 @@
-from torch import device
-from common import os,tqdm,cv2,np,torch,Image,torchvision,rec_args
+
+from common import os,tqdm,cv2,np,torch,Image,torchvision,rec_args,device
 from identifier.model import RecModelBuilder
 from identifier.preprocesss import WMRDataset
 

@@ -2,3 +2,7 @@ test/
 build/
 output/
 dataset*/
+temp*/
+__pycache__/
+.venv/
+work/
