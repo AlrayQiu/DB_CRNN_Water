@@ -28,7 +28,7 @@ if torch.cuda.is_available():
 else:
     device = torch.device('cpu')
     
-DEBUG = True  
+DEBUG = False  
 
 
 # 参数设置
@@ -44,7 +44,7 @@ class DetOptions():
         self.train_gt_dir = 'datasets/data/train_gts'                 
         self.test_dir = 'datasets/data/test_imgs'
         self.save_dir = 'temp/det_models/'                            # 保存检测模型
-        self.saved_model_path = 'temp/det_models/checkpoint_final'    # 保存最终检测模型
+        self.saved_model_path = './detector_model'    # 保存最终检测模型
         self.det_res_dir = 'temp/det_res/'                            # 保存测试集检测结
         self.thresh = 0.3                                             # 分割后处理阈值
         self.box_thresh = 0.5                                         # 检测框阈值
@@ -68,7 +68,7 @@ class RecOptions():
         self.train_dir = 'temp/rec_datasets/train_imgs'
         self.test_dir = 'temp/rec_datasets/test_imgs'
         self.save_dir = 'temp/rec_models/'
-        self.saved_model_path = 'temp/rec_models/checkpoint_final'
+        self.saved_model_path = './identifer_model'
         self.rec_res_dir = 'temp/rec_res/'
  
  
